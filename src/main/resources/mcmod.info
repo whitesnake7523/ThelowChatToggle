@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ThelowChatToggle",
+  "name": "ThelowChatToggle",
+  "description": "Toggle Chat in minecraft server Thelow",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["white_snake_7523"],
+  "credits": "leaflol for ASM injection of Event",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
