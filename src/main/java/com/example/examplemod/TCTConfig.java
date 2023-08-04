@@ -2,11 +2,6 @@ package com.example.examplemod;
 
 import java.io.*;
 
-import gnu.trove.impl.hash.THash;
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatComponentText;
-import net.minecraftforge.common.config.Configuration;
-
 public class TCTConfig {
 
     public static void load() {
@@ -42,7 +37,7 @@ public class TCTConfig {
                     }
                     if(data.startsWith("HUDX:")){
                         try {
-                            num=Integer.parseInt(data.substring(5, 6));
+                            num=Integer.parseInt(data.substring(5));
                             ThelowChatToggle.ChromaX=num;
                         }
                         catch (NumberFormatException e){
@@ -50,7 +45,7 @@ public class TCTConfig {
                     }
                     if(data.startsWith("HUDY:")){
                         try {
-                            num=Integer.parseInt(data.substring(5, 6));
+                            num=Integer.parseInt(data.substring(5));
                             ThelowChatToggle.ChromaY=num;
                         }
                         catch (NumberFormatException e){

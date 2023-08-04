@@ -83,6 +83,7 @@ public class ThelowChatToggle
                 prefix = "/clan msg ";
                 mode=2;
             }
+
             if (message.startsWith("/") || prefix == "") {
                 chatflag = false;
             }
