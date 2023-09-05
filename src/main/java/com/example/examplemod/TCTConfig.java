@@ -51,6 +51,17 @@ public class TCTConfig {
                         catch (NumberFormatException e){
                         }
                     }
+                    if(data.startsWith("timer:")){
+                        try {
+                            num=Integer.parseInt(data.substring(6));
+                            if(num==0)
+                                ThelowChatToggle.isOnTimer=false;
+                            if(num==1)
+                                ThelowChatToggle.isOnTimer=true;
+                        }
+                        catch (NumberFormatException e){
+                        }
+                    }
                 }
 
                 //ファイルクローズ
@@ -86,7 +97,12 @@ public class TCTConfig {
             bufferedWriter.write("HUDX:"+ ThelowChatToggle.ChromaX +"");
             bufferedWriter.newLine();
             bufferedWriter.write("HUDY:"+ ThelowChatToggle.ChromaY +"");
-
+            bufferedWriter.newLine();
+            if(ThelowChatToggle.isOnTimer)
+                bufferedWriter.write("timer:1");
+            else
+                bufferedWriter.write("timer:0");
+            bufferedWriter.newLine();
             bufferedWriter.flush();
 
             bufferedWriter.close();

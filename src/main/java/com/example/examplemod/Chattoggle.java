@@ -7,7 +7,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.util.ChatComponentText;
 
-public class Chattoggle extends CommandBase {
+public class ChatToggle extends CommandBase {
     @Override
     public String getCommandName() {
         return "tct";
@@ -18,7 +18,7 @@ public class Chattoggle extends CommandBase {
         return "/" + getCommandName();
     }
     public static String usage(ICommandSender arg0) {
-        return new Chattoggle().getCommandUsage(arg0);
+        return new ChatToggle().getCommandUsage(arg0);
     }
 
     @Override
@@ -52,9 +52,21 @@ public class Chattoggle extends CommandBase {
                 }
                 TCTConfig.save();
             }
-            else{Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("/tct res or /tct fix"));}
+            else if(argument.equals("timer")){
+                ThelowChatToggle.tickCounter=0;
+                if (ThelowChatToggle.isOnTimer){
+                    ThelowChatToggle.isOnTimer=false;
+                    Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("mode: timer off"));
+                }
+                else {
+                    ThelowChatToggle.isOnTimer=true;
+                    Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("mode: timer on"));
+                }
+                TCTConfig.save();
+            }
+            else{Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("/tct res, fix or timer"));}
         } else {
-            Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("/tct res or /tct fix"));
+            Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("/tct res, fix or timer"));
             throw new WrongUsageException(getCommandUsage(sender));
         }
     }

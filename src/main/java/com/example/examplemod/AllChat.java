@@ -4,7 +4,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.command.WrongUsageException;
 import net.minecraft.util.ChatComponentText;
 
 public class AllChat extends CommandBase {
@@ -18,7 +17,7 @@ public class AllChat extends CommandBase {
         return "/" + getCommandName();
     }
     public static String usage(ICommandSender arg0) {
-        return new Chattoggle().getCommandUsage(arg0);
+        return new ChatToggle().getCommandUsage(arg0);
     }
 
     @Override
@@ -40,7 +39,6 @@ public class AllChat extends CommandBase {
             ThelowChatToggle.mode=0;
             ThelowChatToggle.prefix="";
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Switched to allchat"));
-            throw new WrongUsageException(getCommandUsage(sender));
         }
     }
 
